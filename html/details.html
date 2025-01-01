@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+
+<head>
+		<meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+        <title>Brazalink</title>
+		
+        <!-- All Plugins Css -->
+        <link rel="stylesheet" href="assets/css/plugins.css">
+		 
+		
+		
+        <!-- Custom CSS -->
+        <link href="assets/css/styles.css" rel="stylesheet">
+		
+		<!-- Custom Color Option -->
+		<link href="assets/css/colors.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			
+					.accordion {
+    background-color: #01a841 !important;
+    color: #fff;
+    border: 1px solid #E3FFEE;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: 0.4s;
+    font-weight: bold;
+}
+button:focus {
+    outline: 0;
+}
+
+
+.accordion:after {
+  content: '\002B';
+  color: #fff;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+	   </style>
+    </head>
+	
+    <body class="red-skin">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+            <!-- ============================================================== -->
+            <!-- Top header  -->
+            <!-- ============================================================== -->
+            <!-- Start Navigation -->
+			<div class="header header-light">
+				<div class="container">
+				    <div class="mobile-nav p-2 justify-content-between" style="display:none;">
+					     <div>
+					        <a href="#">
+										<img src="assets/img/usa-flag.webp" />
+							</a>
+					     </div>
+					     <div>
+					        <img src="assets/img/logo-light.png"  alt="" />
+					     </div>
+					     <div class="d-flex pt-2">
+					         
+					        <!--<div class="nav-toggle mr-2"><i class="fa fa-bars" style="font-size:24px"></i></div>-->
+							<div class="nav-toggle" style="right:55px;"><a href="signin.html">
+										 <i class="fas fa-user-circle" style="font-size: 24px;color: #01ad40;"></i>
+							</a>
+							</div>
+					     </div>
+					    </div>
+					<nav id="navigation" class="row navigation navigation-landscape">
+					     <div class="pt-4 col-lg-4">
+					         <a href="#">
+										<img src="assets/img/usa-flag.webp" />
+									</a>
+					     </div>
+						<div class="nav-header col-lg-4 text-center">
+						    	
+							<a class="nav-brand" href="index.html">
+								<img src="assets/img/logo-light.png" class="logo hd-992" alt="" />
+								<img src="assets/img/logo.png" class="logo sw-m" alt="" />
+							</a>
+							
+						
+						</div>
+						<div class="nav-menus-wrapper col-lg-4" style="transition-property: none;">
+						
+							
+							<ul class="nav-menu nav-menu-social align-to-right">
+							   
+							
+								
+								<li class="add-listing bg-whit">
+									<a href="signin.html">
+										 <i class="fas fa-user-circle"></i> Sign In
+									</a>
+								</li>
+							</ul>
+						
+						</div>
+						
+					</nav>
+					
+						<div id="search-box">
+  <div class="container">
+    <a class="close" href="#close"></a>
+    <div class="search-main">
+      <div class="search-inner">
+        <input type="text" id="inputSearch" name="firstname" placeholder="">
+        <span class="search-info">Hit enter to search or ESC to close</span>
+      </div>
+    </div>
+  </div>
+</div>
+				</div>
+			</div>
+			<!-- End Navigation -->
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			
+			<!-- ================================ Start Banner =================================== -->
+			<section class="page-title-banner" style="background-image:url(assets/img/banner-3.jpg);">
+				<div class="container">
+					<div class="row m-0 align-items-end detail-swap">
+						<div class="tr-list-wrap">
+							<div class="tr-list-detail d-flex">
+								<div class="tr-list-thumb">
+									<img src="assets/img/l-1.jpg" class="img-responsive" alt="" style="width:100%; height: 100%;"/>
+								</div>
+								<div class="tr-list-info">
+									<div class="cate-gorio"><a href="#">Restaurant</a></div>
+									<h4 class="veryfied-list" style="color:#000">Brazilian Grill</h4>
+									<p style="color:#000"><i class="ti-location-pin"></i>#202 New Blick Market, USA</p>
+									<div class="tr-list-ratting">
+										<div class="ratting-group">
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star"></i>
+											<a href="#" class="overall-reviews">(42 Reviews)</a>
+										</div>
+									</div>
+									
+									
+								</div>
+								<ul class="d-flex icondetail mt-5">
+											<li><a href="javascript:void();"><img src="assets/img/11.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/12.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/13.png"></a></li>
+											
+											
+										</ul>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- ================================ End Banner ========================================= -->
+			
+			<!-- ============================ Property Detail Start ================================== -->
+			<section class="mt-5">
+				<div class="container">
+					<div class="row">
+						
+						<!-- property main detail -->
+						<div class="col-lg-8 col-md-12 col-sm-12">
+							<!--<div class="row mb-3">
+								<div class="col-lg-3 col-3 text-center">
+									<a href="javascript:void();"><img src="assets/img/icon1.png"/></a>
+								</div>
+								<div class="col-lg-3 col-3 text-center">
+									<a href="javascript:void();"><img src="assets/img/icon2.png"/></a>
+								</div>
+								<div class="col-lg-3 col-3 text-center">
+									<a href="javascript:void();"><img src="assets/img/icon3.png"/></a>
+								</div>
+								<div class="col-lg-3 col-3 text-center">
+									<a href="javascript:void();"><img src="assets/img/icon4.png"/></a>
+								</div>
+							</div>-->
+							<!-- Single Block Wrap -->
+							<div class="text-center mt-3">
+							<ul class="d-flex icondetail">
+											<li><a href="javascript:void();"><img src="assets/img/whatsapp.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/instagram.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/global.png"></a></li>
+											
+											<li><a href="javascript:void();"><img src="assets/img/calendar.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/call.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/location.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/category.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/sms.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/paperclip-2.png"></a></li>
+											<li><a href="javascript:void();"><img src="assets/img/share.png"></a></li>
+										</ul>
+							</div>
+							<div style="margin-top:30px">
+								 <button class="accordion">Business Description</button>
+<div class="panel">
+  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	
+	 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	
+	 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Location</button>
+<div class="panel">
+   <h5><i class="lni-map-marker" style="color:#01a841"></i> Grand Park. New York</h5>
+									<div class="map-container">
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54875.24055089478!2d76.7508579533216!3d30.726761932228868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedb2d3da9405%3A0xaecad931f1a39595!2sICICI%20Bank%20Sector%2034%2C%20Chandigarh%20-%20Branch%20%26%20ATM!5e0!3m2!1sen!2sin!4v1611821871299!5m2!1sen!2sin" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+									</div>
+</div>
+
+
+
+								
+								
+							</div>
+							
+						
+							
+							
+						
+						
+						
+							
+							
+						</div>
+						
+						<!-- Listing Sidebar -->
+						<div class="col-lg-4 col-md-12 col-sm-12">
+							
+							
+							<div class="page-sidebar">
+							
+								
+								
+							
+			                   	<!-- Business Info -->
+							
+								
+								<!-- Listing Hour Detail -->
+							
+								
+								<!-- Some Imp Boxes -->
+								<div class="imp-boxes">
+									<div class="imp-boxes-single">
+										<div class="imp-boxes-single-icon"><img src="assets/img/phone.svg" width="25" alt="" /></div>
+										<div class="imp-boxes-single-content">+XX XXX XXXX XXX</div>
+									</div>
+									<div class="imp-boxes-single">
+										<div class="imp-boxes-single-icon"><img src="assets/img/mail.svg" width="25" alt="" /></div>
+										<div class="imp-boxes-single-content">test@mail.com</div>
+									</div>
+									<!--<div class="imp-boxes-single">-->
+									<!--	<div class="imp-boxes-single-icon"><img src="assets/img/share.svg" width="25" alt="" /></div>-->
+									<!--	<div class="imp-boxes-single-content">-->
+									<!--		<ul>-->
+									<!--			<li><a href="#"><i class="ti-facebook"></i></a></li>-->
+									<!--			<li><a href="#"><i class="ti-twitter"></i></a></li>-->
+									<!--			<li><a href="#"><i class="ti-google"></i></a></li>-->
+									<!--			<li><a href="#"><i class="ti-instagram"></i></a></li>-->
+									<!--			<li><a href="#"><i class="ti-linkedin"></i></a></li>-->
+									<!--		</ul>-->
+									<!--	</div>-->
+									<!--</div>-->
+								</div>
+								<!-- Some Imp Boxes -->
+									<div class="Reveal-side-widget">
+									<div class="Reveal-Reveal-side-widget-header dark red">
+										<div class="Reveal-thumb-details">
+											<h4><i class="fa fa-clock-o"></i> Hours</h4>
+										
+										</div>
+									
+										<div class="clearfix"></div>
+									</div>
+									
+									<div class="Reveal-other-body">
+										<ul class="listing-hour-day">
+											<li>
+												<span class="listing-hour-day">Monday</span>
+												<span class="listing-hour-time">10:00 - 6:00</span>
+											</li>
+											<li>
+												<span class="listing-hour-day">Tuesday</span>
+												<span class="listing-hour-time">10:00 - 6:00</span>
+											</li>
+											<li>
+												<span class="listing-hour-day">Wednesday</span>
+												<span class="listing-hour-time">10:00 - 6:00</span>
+											</li>
+											<li>
+												<span class="listing-hour-day">Thursday</span>
+												<span class="listing-hour-time">10:00 - 4:00</span>
+											</li>
+											<li>
+												<span class="listing-hour-day">Friday</span>
+												<span class="listing-hour-time">10:00 - 6:00</span>
+											</li>
+											<li>
+												<span class="listing-hour-day">Saturday</span>
+												<span class="listing-hour-time">Closed</span>
+											</li>
+											<li>
+												<span class="listing-hour-day">Sunday</span>
+												<span class="listing-hour-time">10:00 - 6:00</span>
+											</li>
+											
+										</ul>
+									</div>
+									
+								</div>
+								
+								
+													
+							
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<!-- ============================ Property Detail End ================================== -->
+			
+			
+			<!-- ============================ Footer Start ================================== -->
+			<footer class="dark-footer skin-dark-footer">
+			
+				
+				<div class="footer-bottom">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-12 text-center">
+								<ul class="text-center footlink" style="gap:5px; list-style-type:none; margin-left:-25px;">
+									<li><a href="service-request.html">Service Request</a></li>
+									<li><a href="help.html">Help</a></li>
+									<li><a href="QA.html">QA</a></li>
+									<li><a href="privacy-policy.html">Privacy policy</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-12 text-center mt-2">
+								<p class="mb-0" style="color:#fff">© 2024 Brazalinks. All Rights Reserved</p>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- ============================ Footer End ================================== -->
+			
+			
+			
+			<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+
+			
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/rangeslider.js"></script>
+		<script src="assets/js/select2.min.js"></script>
+		<script src="assets/js/owl.carousel.min.js"></script>
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+		<script src="assets/js/slick.js"></script>
+		<script src="assets/js/slider-bg.js"></script>
+		<script src="assets/js/lightbox.js"></script> 
+		<script src="assets/js/imagesloaded.js"></script>
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/counterup.min.js"></script>
+		 
+		<script src="assets/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+// Open the first accordion by default
+if (acc.length > 0) {
+  acc[0].classList.add("active"); // Add "active" class to the first accordion
+  var firstPanel = acc[0].nextElementSibling;
+  firstPanel.style.maxHeight = firstPanel.scrollHeight + "px"; // Set the maxHeight to its scrollHeight
+}
+
+// Add click event listeners to toggle the accordion
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>	
+
+	</body>
+
+
+
+</html>

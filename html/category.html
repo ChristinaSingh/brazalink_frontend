@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+
+<head>
+		<meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+        <title>Brazalink</title>
+		
+        <!-- All Plugins Css -->
+        <link rel="stylesheet" href="assets/css/plugins.css">
+		 
+		
+		
+        <!-- Custom CSS -->
+        <link href="assets/css/styles.css" rel="stylesheet">
+		
+		<!-- Custom Color Option -->
+		<link href="assets/css/colors.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+    </head>
+	
+    <body class="red-skin">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+            <!-- ============================================================== -->
+            <!-- Top header  -->
+            <!-- ============================================================== -->
+            <!-- Start Navigation -->
+			<div class="header header-light">
+				<div class="container">
+				    <div class="mobile-nav p-2 justify-content-between" style="display:none;">
+					     <div>
+					        <a href="#">
+										<img src="assets/img/usa-flag.webp" />
+							</a>
+					     </div>
+					     <div>
+					        <img src="assets/img/logo-light.png"  alt="" />
+					     </div>
+					     <div class="d-flex pt-2">
+					       <!-- <li><a href="#search"><i class="fa fa-search"></i></a></li>-->
+					        <!--<div class="nav-toggle mr-2"><i class="fa fa-bars" style="font-size:24px"></i></div>-->
+							<div class="nav-toggle" style="right:55px;"><a href="signin.html">
+										 <i class="fas fa-user-circle" style="font-size: 24px;color: #01ad40;"></i>
+							</a>
+							</div>
+					     </div>
+					    </div>
+					<nav id="navigation" class="row navigation navigation-landscape">
+					     <div class="pt-4 col-lg-4">
+					         <a href="#">
+										<img src="assets/img/usa-flag.webp" />
+									</a>
+					     </div>
+						<div class="nav-header col-lg-4 text-center">
+						    	
+							<a class="nav-brand" href="index.html">
+								<img src="assets/img/logo-light.png" class="logo hd-992" alt="" />
+								<img src="assets/img/logo.png" class="logo sw-m" alt="" />
+							</a>
+							
+						
+						</div>
+						<div class="nav-menus-wrapper col-lg-4" style="transition-property: none;">
+						
+							
+							<ul class="nav-menu nav-menu-social align-to-right">
+							  <!-- <li><a href="#search"><i class="fa fa-search"></i></a></li>-->
+							
+								
+								<li class="add-listing bg-whit">
+									<a href="signin.html">
+										 <i class="fas fa-user-circle"></i> Sign In
+									</a>
+								</li>
+							</ul>
+						
+						</div>
+						
+					</nav>
+					
+						<div id="search-box">
+  <div class="container">
+    <a class="close" href="#close"></a>
+    <div class="search-main">
+      <div class="search-inner">
+        <input type="text" id="inputSearch" name="firstname" placeholder="">
+        <span class="search-info">Hit enter to search or ESC to close</span>
+      </div>
+    </div>
+  </div>
+</div>
+				</div>
+			</div>
+			<!-- End Navigation -->
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			
+			<!-- ============================ Hero Banner  Start================================== -->
+			<!--<div class="image-cover hero-banner" style="background:url(assets/img/banner-2.jpg) no-repeat;" data-overlay="6">-->
+			<!--	<div class="container">-->
+			<!--		<div class="row">-->
+			<!--			<div class="col-lg-12 col-md-12">-->
+						
+			<!--				<h1 class="big-header-capt capti">Explore Now </h1>-->
+			<!--				<div class="full-search-2 Reveal-search Reveal-search-radius box-style">-->
+			<!--					<div class="Reveal-search-content">-->
+									
+			<!--						<div class="row">-->
+									
+			<!--							<div class="col-lg-10 col-md-10 col-sm-12 br-left-p">-->
+			<!--								<div class="form-group">-->
+			<!--									<div class="input-with-icon">-->
+			<!--										<input type="text" class="form-control" placeholder="Search...">-->
+			<!--										<i class="theme-cl ti-search"></i>-->
+			<!--									</div>-->
+			<!--								</div>-->
+			<!--							</div>-->
+										
+										
+			<!--							<div class="col-lg-2 col-md-2 col-sm-12">-->
+			<!--								<div class="form-group">-->
+			<!--									<a href="#" class="btn search-btn">Search</a>-->
+			<!--								</div>-->
+			<!--							</div>-->
+										
+			<!--						</div>-->
+									
+			<!--					</div>-->
+								
+			<!--				</div>-->
+							
+						
+			<!--			</div>-->
+			<!--		</div>-->
+			<!--	</div>-->
+			<!--</div>-->
+			<!-- ============================ Hero Banner End ================================== -->
+			
+			<!-- ============================ Calegory Start ================================== -->
+			<section class="pb-2 ppd">
+			    <div class="container">
+			        <div class="row justify-content-center mb-3">
+						<div class="col-lg-12 col-12">
+							<div style="position:relative">
+			                       <input type="search" id="search-input" class="form-control searchh" placeholder="" style="height:55px; border-radius:100px; padding-left:50px;"/>
+								<span style="position:absolute; left:12px; top:16px; color:#01a841"><i class="fa fa-search"></i> </span>	
+							<button type="submit"  class="btn btn-primary" style="border-radius:100px; position:absolute; right:5px; top:5px"> <span>Go</span></button>
+							<!--<button type="submit"  class="dp-block" style="border-radius:100%; background: #01a841;position: absolute;
+    border: 1px solid #01a841;right:5px; top:8px;  width:40px; height:40px; display:none; color:#fff"> <span><i class="fa fa-search"></i></span></button>	-->
+							</div>
+			                    </div>
+					  </div>
+						 
+			    </div>
+			</section>	
+			
+			<!-- ============================ Calegory End ================================== -->
+			
+			<!-- ============================ Listings Start ================================== -->
+			<section class="pt-2">
+				<div class="container">
+				  	
+					<div class="row">
+						<div class="col-lg-12 col-12">
+							<h4>Categories</h4>
+						</div>
+						<div class="row ppdd">
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="lni-burger"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Restaurant</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fas fa-running"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Sports</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-shopping-cart"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Shopping</h4>
+										
+										</div>
+									</div>
+								</a>	
+							</div>
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-car"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Cars</h4>
+											
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-cog"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Services</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-home"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Real Estate</h4>
+											
+										</div>
+									</div>
+								</a>
+							</div>
+
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-paint-brush"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Art</h4>
+										
+										</div>
+									</div>
+								</a>	
+							</div>
+							
+							<!-- Single Category -->
+							
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="ti-ruler-pencil"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Education</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="ti-heart-broken"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Healthcare</h4>
+										
+										</div>
+									</div>
+								</a>	
+							</div>
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-cutlery"></i>
+											
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Restaurant</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-building"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Construction</h4>
+											
+										</div>
+									</div>
+								</a>
+							</div>
+							
+							<!-- Single Category -->
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="ti-desktop"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4> Technology</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="fa fa-wrench"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4> Repair</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="lni-burger"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4> Hosting</h4>
+										
+										</div>
+									</div>
+								</a>
+							</div>
+							
+							
+							<div class="Reveal-cats-box col-lg-2 col-4">
+								<a href="#" class="Reveal-category-box">
+									<div class="category-desc">
+										<div class="category-icon">
+											<i class="ti-briefcase"></i>
+										</div>
+
+										<div class="Reveal-category-detail category-desc-text">
+											<h4>Business</h4>
+											
+										</div>
+									</div>
+								</a>
+							</div>
+							
+						</div>
+					</div>
+					
+					
+					
+				</div>
+			</section>
+			<!-- ============================ Listings End ================================== -->
+			
+			<!-- ============================ review Mores Start ================================== -->
+			<!--<section class="gray">-->
+			<!--	<div class="container">-->
+					
+			<!--		<div class="row">-->
+			<!--			<div class="col-lg-12 col-md-12">-->
+			<!--				<div class="sec-heading center">-->
+							
+			<!--					<h3>What People <span class="theme-cl">Saying</span></h3>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--		</div>-->
+					
+			<!--		<div class="row">-->
+			<!--			<div class="col-lg-12 col-md-12">-->
+			<!--				<div class="owl-carousel owl-theme" id="lists-slide">-->
+							
+								<!-- Single review More -->
+			<!--					<div class="item testimonial-center">-->
+			<!--						<div class="Reveal-smart-tes-author">-->
+			<!--							<div class="Reveal-st-author-box">-->
+			<!--								<div class="Reveal-st-author-thumb">-->
+			<!--									<img src="assets/img/user-1.png" class="img-fluid" alt="" />-->
+			<!--								</div>-->
+			<!--								<div class="Reveal-st-author-info">-->
+			<!--									<h4 class="Reveal-st-author-title">Adam Williams</h4>-->
+			<!--									<span class="Reveal-st-author-subtitle theme-cl">CEO Of Microwoft</span>-->
+			<!--								</div>-->
+			<!--							</div>-->
+			<!--						</div>-->
+			<!--						<div class="Reveal-smart-tes-content">-->
+			<!--							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>-->
+			<!--						</div>-->
+			<!--					</div>-->
+								
+								<!-- Single review More -->
+			<!--					<div class="item testimonial-center">-->
+			<!--						<div class="Reveal-smart-tes-author">-->
+			<!--							<div class="Reveal-st-author-box">-->
+			<!--								<div class="Reveal-st-author-thumb">-->
+			<!--									<img src="assets/img/user-2.png" class="img-fluid" alt="" />-->
+			<!--								</div>-->
+			<!--								<div class="Reveal-st-author-info">-->
+			<!--									<h4 class="Reveal-st-author-title">Lilly Wikdoner</h4>-->
+			<!--									<span class="Reveal-st-author-subtitle theme-cl">Content Writer</span>-->
+			<!--								</div>-->
+			<!--							</div>-->
+			<!--						</div>-->
+			<!--						<div class="Reveal-smart-tes-content">-->
+			<!--							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>-->
+			<!--						</div>-->
+			<!--					</div>-->
+								
+								<!-- Single review More -->
+			<!--					<div class="item testimonial-center">-->
+			<!--						<div class="Reveal-smart-tes-author">-->
+			<!--							<div class="Reveal-st-author-box">-->
+			<!--								<div class="Reveal-st-author-thumb">-->
+			<!--									<img src="assets/img/user-3.png" class="img-fluid" alt="" />-->
+			<!--								</div>-->
+			<!--								<div class="Reveal-st-author-info">-->
+			<!--									<h4 class="Reveal-st-author-title">Shaurya Williams</h4>-->
+			<!--									<span class="Reveal-st-author-subtitle theme-cl">Manager Of Doodle</span>-->
+			<!--								</div>-->
+			<!--							</div>-->
+			<!--						</div>-->
+			<!--						<div class="Reveal-smart-tes-content">-->
+			<!--							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>-->
+			<!--						</div>-->
+			<!--					</div>-->
+								
+								<!-- Single review More -->
+			<!--					<div class="item testimonial-center">-->
+			<!--						<div class="Reveal-smart-tes-author">-->
+			<!--							<div class="Reveal-st-author-box">-->
+			<!--								<div class="Reveal-st-author-thumb">-->
+			<!--									<img src="assets/img/user-4.png" class="img-fluid" alt="" />-->
+			<!--								</div>-->
+			<!--								<div class="Reveal-st-author-info">-->
+			<!--									<h4 class="Reveal-st-author-title">Shrithi Setthi</h4>-->
+			<!--									<span class="Reveal-st-author-subtitle theme-cl">CEO Of Applio</span>-->
+			<!--								</div>-->
+			<!--							</div>-->
+			<!--						</div>-->
+			<!--						<div class="Reveal-smart-tes-content">-->
+			<!--							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>-->
+			<!--						</div>-->
+			<!--					</div>-->
+							
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--		</div>-->
+					
+			<!--	</div>-->
+			<!--</section>-->
+			<!-- ============================ review Mores End ================================== -->
+			
+			<!-- ================================= Blog Grid ================================== -->
+			<!--<section>-->
+			<!--	<div class="container">-->
+				
+			<!--		<div class="row">-->
+			<!--			<div class="col text-center">-->
+			<!--				<div class="sec-heading center">-->
+								
+			<!--					<h3>News &<span class="theme-cl">Blog</span></h3>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--		</div>-->
+					
+			<!--		<div class="row">-->
+						
+						<!-- Single blog Grid -->
+			<!--			<div class="col-lg-4 col-md-4 col-sm-12">-->
+			<!--				<div class="Reveal-blog-wrap-grid">-->
+								
+			<!--					<div class="Reveal-blog-thumb">-->
+			<!--						<a href="blog-detail.html"><img src="assets/img/b-1.jpg" class="img-fluid" alt="" /></a>-->
+			<!--					</div>-->
+								
+			<!--					<div class="Reveal-blog-info">-->
+			<!--						<span class="post-date">By Shilpa Sheri</span>-->
+			<!--					</div>-->
+								
+			<!--					<div class="Reveal-blog-body">-->
+			<!--						<h4 class="bl-title"><a href="blog-detail.html">Why people choose listio for own properties</a></h4>-->
+			<!--						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. </p>-->
+			<!--					</div>-->
+								
+			<!--					<div class="blog-cates">-->
+			<!--						<ul>-->
+			<!--							<li><a href="#" class="blog-cates-list style-4">Health</a></li>-->
+			<!--							<li><a href="#" class="blog-cates-list style-3">Business</a></li>-->
+			<!--						</ul>-->
+			<!--					</div>-->
+								
+			<!--				</div>-->
+			<!--			</div>-->
+						
+						<!-- Single blog Grid -->
+			<!--			<div class="col-lg-4 col-md-4 col-sm-12">-->
+			<!--				<div class="Reveal-blog-wrap-grid">-->
+								
+			<!--					<div class="Reveal-blog-thumb">-->
+			<!--						<a href="blog-detail.html"><img src="assets/img/b-2.jpg" class="img-fluid" alt="" /></a>-->
+			<!--					</div>-->
+								
+			<!--					<div class="Reveal-blog-info">-->
+			<!--						<span class="post-date">By Shaurya</span>-->
+			<!--					</div>-->
+								
+			<!--					<div class="Reveal-blog-body">-->
+			<!--						<h4 class="bl-title"><a href="blog-detail.html">List of benifits and impressive listeo services</a></h4>-->
+			<!--						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. </p>-->
+			<!--					</div>-->
+								
+			<!--					<div class="blog-cates">-->
+			<!--						<ul>-->
+			<!--							<li><a href="#" class="blog-cates-list style-1">Banking</a></li>-->
+			<!--							<li><a href="#" class="blog-cates-list style-5">Stylish</a></li>-->
+			<!--						</ul>-->
+			<!--					</div>-->
+								
+			<!--				</div>-->
+			<!--			</div>-->
+						
+						<!-- Single blog Grid -->
+			<!--			<div class="col-lg-4 col-md-4 col-sm-12">-->
+			<!--				<div class="Reveal-blog-wrap-grid">-->
+								
+			<!--					<div class="Reveal-blog-thumb">-->
+			<!--						<a href="blog-detail.html"><img src="assets/img/b-3.jpg" class="img-fluid" alt="" /></a>-->
+			<!--					</div>-->
+								
+			<!--					<div class="Reveal-blog-info">-->
+			<!--						<span class="post-date">By Admin K.</span>-->
+			<!--					</div>-->
+								
+			<!--					<div class="Reveal-blog-body">-->
+			<!--						<h4 class="bl-title"><a href="blog-detail.html">What people says about listio properties</a></h4>-->
+			<!--						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. </p>-->
+			<!--					</div>-->
+								
+			<!--					<div class="blog-cates">-->
+			<!--						<ul>-->
+			<!--							<li><a href="#" class="blog-cates-list style-1">Fashion</a></li>-->
+			<!--							<li><a href="#" class="blog-cates-list style-2">Wedding</a></li>-->
+			<!--						</ul>-->
+			<!--					</div>-->
+								
+			<!--				</div>-->
+			<!--			</div>-->
+						
+			<!--		</div>-->
+					
+			<!--	</div>		-->
+			<!--</section>-->
+			<!-- ============================= Blog Grid End ================================ -->
+			
+		
+			
+			<!-- ============================ Footer Start ================================== -->
+			<footer class="dark-footer skin-dark-footer">
+			
+				
+				<div class="footer-bottom">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-12 text-center">
+								<ul class="text-center footlink" style="gap:5px; list-style-type:none; margin-left:-25px;">
+									<li><a href="service-request.html">Service Request</a></li>
+									<li><a href="help.html">Help</a></li>
+									<li><a href="QA.html">QA</a></li>
+									<li><a href="privacy-policy.html">Privacy policy</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-12 text-center mt-2">
+								<p class="mb-0" style="color:#fff">© 2024 Brazalinks. All Rights Reserved</p>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- ============================ Footer End ================================== -->
+			
+			
+			
+			<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+
+			
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/rangeslider.js"></script>
+		<script src="assets/js/select2.min.js"></script>
+		<script src="assets/js/owl.carousel.min.js"></script>
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+		<script src="assets/js/slick.js"></script>
+		<script src="assets/js/slider-bg.js"></script>
+		<script src="assets/js/lightbox.js"></script> 
+		<script src="assets/js/imagesloaded.js"></script>
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/counterup.min.js"></script>
+		 
+		<script src="assets/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->
+        <script>
+            $('a[href="#search"]').click(function() {
+  event.preventDefault()
+  $("#search-box").addClass("-open");
+  setTimeout(function() {
+    inputSearch.focus();
+  }, 800);
+});
+
+$('a[href="#close"]').click(function() {
+  event.preventDefault()
+  $("#search-box").removeClass("-open");
+});
+
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) { // escape key maps to keycode `27`
+    $("#search-box").removeClass("-open");
+  }
+});
+        </script>
+		
+	<script>
+    // Function to get the greeting based on the time of day
+    function getGreeting() {
+      const now = new Date();
+      const hours = now.getHours();
+      const userName = "Rick"; // You can dynamically replace this with user data
+
+      if (hours < 12) {
+        return `Good Morning, ${userName}! what are you looking for today?`;
+      } else if (hours < 18) {
+        return `Good Afternoon, ${userName}! what are you looking for today?`;
+      } else {
+        return `Good Evening, ${userName}! what are you looking for today?`;
+      }
+    }
+
+    const placeholderText = getGreeting(); // Get the personalized greeting
+    const input = document.getElementById("search-input");
+    let index = 0;
+
+    function typePlaceholder() {
+      if (index < placeholderText.length) {
+        input.placeholder += placeholderText.charAt(index);
+        index++;
+        setTimeout(typePlaceholder, 100); // Typing speed in milliseconds
+      } else {
+        // Reset animation after a delay (optional)
+        setTimeout(() => {
+          input.placeholder = "";
+          index = 0;
+          typePlaceholder();
+        }, 3000); // Delay before restarting animation
+      }
+    }
+
+    // Start typing animation when the page loads
+    typePlaceholder();
+  </script>	
+		
+	</body>
+
+
+
+</html>
