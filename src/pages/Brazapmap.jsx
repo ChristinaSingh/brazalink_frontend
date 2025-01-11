@@ -1,14 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Brazapmap = () => {
   return (
     <>
-      {/* <div id="preloader">
-    <div className="preloader">
-      <span />
-      <span />
-    </div>
-  </div> */}
       <div id="main-wrapper">
         <div className="clearfix" />
         <section className="pb-2 ppd">
@@ -53,12 +48,12 @@ const Brazapmap = () => {
               <div className="col-lg-12 tabclass" style={{ maxWidth: "98%" }}>
                 <div className="row">
                   <div className="col-lg-6 col-6">
-                    <a
-                      href="index.html"
+                    <Link
+                      to="/"
                       className="btn btn-secondary w-100 tabing  font-res"
                     >
                       <i className="fa fa-building" /> Braza Location
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-lg-6 col-6">
                     <a

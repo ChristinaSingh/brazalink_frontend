@@ -1,15 +1,73 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    dob: "",
+    email: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState("");
+
+  // Handle form input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Basic client-side validation
+    const { firstName, lastName, dob, email, password } = formData;
+    if (!firstName || !lastName || !email || !password) {
+      setErrors("All required fields must be filled.");
+      return;
+    }
+
+    try {
+      const res = await axios.post(
+        `http://localhost:8000/auth/signup`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res.status === 201) {
+        alert("Signup successful!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          dob: "",
+          email: "",
+          password: "",
+        });
+        setErrors(""); // Clear errors
+      }
+      navigate("/signin");
+    } catch (error) {
+      console.error("Signup error:", error);
+      setErrors(
+        error.response?.data?.message || "An error occurred during signup."
+      );
+    }
+  };
+
   return (
     <>
-      {/* <div id="preloader">
-    <div className="preloader">
-      <span />
-      <span />
-    </div>
-  </div> */}
       <div id="main-wrapper">
         <div className="clearfix" />
         <section className="padds">
@@ -27,14 +85,21 @@ const Signup = () => {
                         id="edd_login_form"
                         className="edd_form"
                         method="post"
+                        onSubmit={handleSubmit}
                       >
                         <fieldset>
+                          {errors && (
+                            <div className="alert alert-danger">{errors}</div>
+                          )}
                           <p className="edd-login-username">
                             <label>First Name</label>
                             <input
                               className="form-control"
                               type="text"
                               placeholder="First Name"
+                              name="firstName"
+                              value={formData.firstName}
+                              onChange={handleChange}
                             />
                           </p>
                           <p className="edd-login-username">
@@ -43,6 +108,9 @@ const Signup = () => {
                               className="form-control"
                               type="text"
                               placeholder="Last Name"
+                              name="lastName"
+                              value={formData.lastName}
+                              onChange={handleChange}
                             />
                           </p>
                           <p className="edd-login-username">
@@ -50,15 +118,20 @@ const Signup = () => {
                             <input
                               className="form-control"
                               type="date"
-                              placeholder=""
+                              name="dob"
+                              value={formData.dob}
+                              onChange={handleChange}
                             />
                           </p>
                           <p className="edd-login-username">
                             <label>Email</label>
                             <input
                               className="form-control"
-                              type="text"
+                              type="email"
                               placeholder="Email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
                             />
                           </p>
                           <p className="edd-login-password mb-3">
@@ -67,6 +140,9 @@ const Signup = () => {
                               className="form-control"
                               type="password"
                               placeholder="Password"
+                              name="password"
+                              value={formData.password}
+                              onChange={handleChange}
                             />
                           </p>
                           <p
@@ -83,12 +159,11 @@ const Signup = () => {
                               htmlFor="remember"
                               className="checkbox-custom-label"
                             >
-                              {" "}
                               I agree to the{" "}
                               <a href="#" style={{ color: "#01a841" }}>
                                 Terms of Service
                               </a>{" "}
-                              and
+                              and{" "}
                               <a
                                 href="privacy-policy"
                                 style={{ color: "#01a841" }}
@@ -98,11 +173,12 @@ const Signup = () => {
                             </label>
                           </p>
                           <p className="edd-login-submit mb-3">
-                            <input
+                            <button
                               type="submit"
                               className="btn btn-primary radius-50 color-white full-width"
-                              defaultValue="Sign Up As User"
-                            />
+                            >
+                              Sign Up As User
+                            </button>
                           </p>
                           <div className="modal-divider">
                             <span>OR</span>
@@ -117,9 +193,9 @@ const Signup = () => {
                           </p>
                           <p className="already-login">
                             Have An Account{" "}
-                            <a href="signin.html" className="theme-cl">
+                            <Link to="/signin" className="theme-cl">
                               Sign In
-                            </a>
+                            </Link>
                           </p>
                         </fieldset>
                       </form>

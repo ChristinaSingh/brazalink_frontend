@@ -1,46 +1,81 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
 const Help = () => {
+  const [formData, setFormData] = useState({
+    content: "",
+  });
+
+  // Handle form input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("User id here: ", user?.id);
+
+    if (!user?.id) {
+      alert("User is not logged in!");
+      return;
+    }
+
+    const data = {
+      content: formData.content,
+      createdBy: user?.id,
+    };
+
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/business/help-section/help",
+        data
+      );
+      alert("Help submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting help:", error);
+      alert("Failed to submit help. Please try again.");
+    }
+  };
+
   return (
     <>
-      {/* <div id="preloader">
-        <div className="preloader">
-          <span />
-          <span />
-        </div>
-      </div> */}
-
       <div id="main-wrapper">
         <div className="clearfix" />
-        {/* ============================================================== */}
-        {/* Top header  */}
-        {/* ============================================================== */}
         <section>
           <style
             dangerouslySetInnerHTML={{
-              __html:
-                '\n\t\t\t\t\t.ans{\n  display: none;\n}\n.answer input[type="checkbox"]:checked+label{ background-color: #01a841; color:#fff}\n\n.ans-list {\n    \n    margin: 0px;\n    margin-bottom: 10px;\n    /* width: 50px; */\n    padding:10px;\n    padding-left: 15px;\n    justify-content: left;\n    align-items: center;\n\tborder-radius:10px;\n\tborder:1px solid #eee;\n\tbox-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);\n    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);\n}\n.ans-list:hover{\n  background-color:#ebfff3;\n  color:black;\n}\nbutton {\n    margin: 25px 0;\n    padding: 15px;\n    display: inline-block;\n}\n\t\t\t\t',
+              __html: `
+                .ans{ display: none; }
+                .answer input[type="checkbox"]:checked+label{ background-color: #01a841; color:#fff}
+                .ans-list { padding: 10px; margin-bottom: 10px; border-radius: 10px; border: 1px solid #eee; }
+                .ans-list:hover { background-color:#ebfff3; color:black; }
+                button { margin: 25px 0; padding: 15px; display: inline-block; }
+              `,
             }}
           />
           <div className="container">
-            {/* Row */}
             <div className="row">
               <div className="col-lg-12 col-md-12">
                 <div className="sec-heading center">
-                  <h3>Help </h3>
+                  <h3>Help</h3>
                 </div>
               </div>
             </div>
-            {/* Row */}
           </div>
           <div className="container">
-            {/* Row */}
             <div className="row justify-content-center">
               <div className="col-lg-8">
                 <center>
                   <img src="assets/img/help.png" style={{ marginBottom: 30 }} />
                 </center>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="form-group mt-2">
                     <label>
                       <strong>How can we help?</strong>
@@ -48,7 +83,10 @@ const Help = () => {
                     <textarea
                       className="form-control"
                       style={{ borderRadius: 10 }}
-                      defaultValue={" Type Here"}
+                      name="content"
+                      value={formData.content}
+                      onChange={handleChange}
+                      placeholder="Type your help request here"
                     />
                   </div>
                   <div className="form-group">
@@ -59,10 +97,8 @@ const Help = () => {
                 </form>
               </div>
             </div>
-            {/* Row */}
           </div>
         </section>
-        {/* ============================ Footer End ================================== */}
         <a id="back2Top" className="top-scroll" title="Back to top" href="#">
           <i className="ti-arrow-up" />
         </a>

@@ -4,12 +4,6 @@ import { Link } from "react-router-dom";
 const Signin = () => {
   return (
     <>
-      {/* <div id="preloader">
-        <div className="preloader">
-          <span />
-          <span />
-        </div>
-      </div> */}
       <div id="main-wrapper">
         <div className="clearfix" />
         <section className="padds">
@@ -88,12 +82,12 @@ const Signin = () => {
                             Already have an account
                           </p>
                           <p className="already-login">
-                            <a
-                              href="sign-in.html"
+                            <Link
+                              to="/login"
                               className="btn btn-theme-light full-width"
                             >
                               Sign In
-                            </a>
+                            </Link>
                           </p>
                         </fieldset>
                       </form>

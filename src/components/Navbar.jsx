@@ -1,7 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("authToken");
+    setUser(null);
+    navigate("/signin");
+  };
+
   return (
     <div className="header header-light">
       <div className="container">
@@ -18,8 +35,6 @@ const Navbar = () => {
             <img src="assets/img/logo-light.png" alt="" />
           </div>
           <div className="d-flex pt-2">
-            {/* <!-- <li><a href="#search"><i className="fa fa-search"></i></a></li>-->
-              <!--<div className="nav-toggle mr-2"><i className="fa fa-bars" style="font-size:24px"></i></div>--> */}
             <div className="nav-toggle" style={{ right: "55px" }}>
               <Link href="/">
                 <i
@@ -38,7 +53,11 @@ const Navbar = () => {
           </div>
           <div className="nav-header col-lg-4 text-center">
             <Link className="nav-brand" to="/">
-              <img src="assets/img/logo-light.png" className="logo hd-992" alt="" />
+              <img
+                src="assets/img/logo-light.png"
+                className="logo hd-992"
+                alt=""
+              />
               <img src="assets/img/logo.png" className="logo sw-m" alt="" />
             </Link>
           </div>
@@ -48,12 +67,19 @@ const Navbar = () => {
           >
             <ul className="nav-menu nav-menu-social align-to-right">
               {/* <!-- <li><a href="#search"><i className="fa fa-search"></i></a></li>--> */}
-
-              <li className="add-listing bg-whit">
-                <Link to="/signin">
-                  <i className="fas fa-user-circle"></i> Sign In
-                </Link>
-              </li>
+              {user?.id ? (
+                <li className="add-listing bg-whit">
+                  <Link to="/login">
+                    <i className="fas fa-user-circle"></i> Log Out
+                  </Link>
+                </li>
+              ) : (
+                <li className="add-listing bg-whit">
+                  <button onClick={handleLogout}>
+                    <i className="fas fa-user-circle"></i> Sign In
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </nav>

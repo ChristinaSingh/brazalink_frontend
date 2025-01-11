@@ -1,6 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const PrivacyPolicy = () => {
+  const [privacyPolicy, setPrivacyPolicy] = useState([]);
+
+  const getpolicy = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8000/api/common/privacy`);
+      console.log("Response: ", res.data);
+      setPrivacyPolicy(res.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getpolicy();
+  }, []);
+
   return (
     <>
       {/* <div id="preloader">
