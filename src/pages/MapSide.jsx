@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Brazapmap = () => {
+const MapSide = () => {
   return (
     <>
       <div id="main-wrapper">
-        <div className="clearfix" />
         <section className="pb-2 ppd">
           <div className="container">
             <div className="row justify-content-center mb-3">
@@ -81,4 +80,4 @@ const Brazapmap = () => {
   );
 };
 
-export default Brazapmap;
+export default MapSide;

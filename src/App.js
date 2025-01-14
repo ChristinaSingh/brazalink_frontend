@@ -17,6 +17,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import VerifyOtp from "./pages/VerifyOtp";
 import PasswordRest from "./pages/PasswordRest";
 import Profile from "./pages/Profile";
+import MapSide from "./pages/MapSide";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/brazamap" element={<Brazapmap />} />
+        <Route path="/brazamap" element={<MapSide />} />
         <Route path="/add-business" element={<AddBusiness />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />
