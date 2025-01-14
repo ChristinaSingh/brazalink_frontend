@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -113,7 +113,7 @@ const Login = () => {
                           </label>
                         </p>
                         <p className="edd-lost-password">
-                          <a href="#">Forgot Password?</a>
+                          <Link to="/forgot-password">Forgot Password?</Link>
                         </p>
                         <p className="edd-login-submit">
                           <button
@@ -126,9 +126,9 @@ const Login = () => {
                         </p>
                         <p className="text-center">
                           Don't have An Account{" "}
-                          <a href="signup.html" className="theme-cl">
+                          <Link to="/signup" className="theme-cl">
                             Sign Up
-                          </a>
+                          </Link>
                         </p>
                         <div className="modal-divider">
                           <span>OR</span>

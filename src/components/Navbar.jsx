@@ -3,14 +3,30 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
+    if (storedUser.id) {
       setUser(storedUser);
     }
+
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest(".btn-group")) {
+        setDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
   }, []);
+
+  const handleProfileClick = () => {
+    setDropdownVisible(false);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -18,6 +34,11 @@ const Navbar = () => {
     setUser(null);
     navigate("/signin");
   };
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+    console.log("Dropdown visible:", !dropdownVisible);
+  };  
 
   return (
     <div className="header header-light">
@@ -66,18 +87,58 @@ const Navbar = () => {
             style={{ transitionProperty: "none" }}
           >
             <ul className="nav-menu nav-menu-social align-to-right">
-              {/* <!-- <li><a href="#search"><i className="fa fa-search"></i></a></li>--> */}
               {user?.id ? (
-                <li className="add-listing bg-whit">
-                  <Link to="/login">
-                    <i className="fas fa-user-circle"></i> Log Out
-                  </Link>
+                <li className="attributes">
+                  <div className="btn-group account-drop">
+                    <button
+                      type="button"
+                      className="btn btn-order-by-filt theme-cl"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded={dropdownVisible} 
+                      onClick={toggleDropdown}
+                    >
+                      <img
+                        src="assets/img/user-1.png"
+                        className="avater-img"
+                        alt=""
+                      />{" "}
+                      {user.firstName} {user.lastName}
+                    </button>
+                    {dropdownVisible && (
+                      <div
+                      className={`dropdown-menu animated flipInX ${
+                        dropdownVisible ? "show" : ""
+                      }`}
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          left: 0,
+                          zIndex: 1000,
+                        }}
+                      >
+                        <Link
+                          to={`/profile/${user.id}`}
+                          className="dropdown-item"
+                          onClick={handleProfileClick}
+                        >
+                          <i className="ti-user" /> Profile
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="dropdown-item"
+                        >
+                          <i className="ti-power-off" /> Logout
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </li>
               ) : (
                 <li className="add-listing bg-whit">
-                  <button onClick={handleLogout}>
+                  <Link onClick={handleLogout}>
                     <i className="fas fa-user-circle"></i> Sign In
-                  </button>
+                  </Link>
                 </li>
               )}
             </ul>

@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
-import { getBusinessDetails } from "../../utils/authUtils";
+import { getBusinessDetails, getLikesIncrease } from "../../utils/authUtils";
 import { Link } from "react-router-dom";
 
 const AllData = () => {
   const [data, setData] = useState([]);
+  const [displayCount, setDisplayCount] = useState(6);
 
+  // Function to fetch business data
   const getBusinessData = async () => {
     try {
       const res = await getBusinessDetails();
+      setData(res);
+    } catch (error) {
+      console.error("Error fetching business data:", error);
+      alert(
+        "An error occurred while fetching the business data. Please try again later."
+      );
+    }
+  };
+
+  const getLikeUpdate = async () => {
+    try {
+      const res = await getLikesIncrease();
       setData(res);
     } catch (error) {
       console.error("Error fetching business data:", error);
@@ -22,28 +36,30 @@ const AllData = () => {
     getBusinessData();
   }, []);
 
-  console.log("Data:-", data);
+  const handleExploreMore = () => {
+    setDisplayCount((prevCount) => prevCount + 3);
+  };
 
   return (
     <section className="pt-2">
       <div className="container">
         <Carousel />
         <div className="row">
-          {data.map((detail, index) => (
+          {data?.slice(0, displayCount).map((detail, index) => (
             <div className="col-lg-4 col-md-4 col-sm-12" key={index}>
               <div className="Reveal-grid-wrapper">
                 <div className="d-flex">
                   <div className="Reveal-grid-thumb text-center">
-                    <a href="details.html">
+                    <Link to={`/details/${detail._id}`}>
                       <img
                         src={
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRguvjEhp-MuHeItJCUPHYDaFzItakjlVnHJhqrlhlghqvMJXEE30qruXk&s" ||
-                          detail.logo
+                          detail.step4.logo
                         }
                         alt="Logo"
                         className="img-fluid"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="Reveal-grid-caption">
                     <div
@@ -55,9 +71,9 @@ const AllData = () => {
                         style={{ justifyContent: "space-between" }}
                       >
                         <Link to={`/details/${detail._id}`}>
-                          {detail.name.length > 15
-                            ? `${detail.name.substring(0, 15)}...`
-                            : detail.name}
+                          {detail.step1.businessName.length > 15
+                            ? `${detail.step1.businessName.substring(0, 15)}...`
+                            : detail.step1.businessName}
                         </Link>{" "}
                         <a
                           href="javascript:void();"
@@ -69,60 +85,60 @@ const AllData = () => {
                           />
                         </a>
                       </h4>
-                      <p>Churrascaria</p>
+                      <p>{detail.step1.sub_category}</p>
                     </div>
                   </div>
                 </div>
                 <div className="Reveal-grid-caption-body">
                   <ul className="Reveal-contact-list flex-wrap">
                     <li>
-                      <a href="javascript:void();">
+                      <a href={detail.step4.whatsapp_number} target="_blank">
                         <img src="assets/img/whatsapp.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href={detail.step4.instagram_link} target="_blank">
                         <img src="assets/img/instagram.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href={detail.step3.website_link} target="_blank">
                         <img src="assets/img/global.png" />
                       </a>
                     </li>
 
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#" target="_blank">
                         <img src="assets/img/calendar.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href={detail.step3.phone} target="_blank">
                         <img src="assets/img/call.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#" target="_blank">
                         <img src="assets/img/location.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#" target="_blank">
                         <img src="assets/img/category.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#" target="_blank">
                         <img src="assets/img/sms.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#" target="_blank">
                         <img src="assets/img/paperclip-2.png" />
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#" target="_blank">
                         <img src="assets/img/share.png" />
                       </a>
                     </li>
@@ -132,19 +148,19 @@ const AllData = () => {
                     style={{ gap: "12px" }}
                   >
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#">
                         <img src="assets/img/icons/Love It.png" /> <br />
                         <span>Love It</span>
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#">
                         <img src="assets/img/icons/Feedbacks.png" /> <br />
                         <span>feedbacks </span>
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#">
                         <img
                           src="assets/img/icons/Connect.png"
                           style={{ maxWidth: "32px" }}
@@ -154,7 +170,7 @@ const AllData = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="javascript:void();">
+                      <a href="#">
                         <img src="assets/img/icons/Save.png" /> <br />
                         <span>Saved </span>
                       </a>
@@ -165,17 +181,19 @@ const AllData = () => {
             </div>
           ))}
         </div>
-        {/* <!-- Row --> */}
 
-        {/* <!-- Row --> */}
-        <div className="row">
-          <div className="col-lg-12 col-md-12 text-center">
-            <a href="#" className="btn btn-light btn-md rounded">
-              Explore More
-            </a>
+        {data?.length > displayCount && (
+          <div className="row">
+            <div className="col-lg-12 col-md-12 text-center">
+              <button
+                onClick={handleExploreMore}
+                className="btn btn-light btn-md rounded"
+              >
+                Explore More
+              </button>
+            </div>
           </div>
-        </div>
-        {/* <!-- Row --> */}
+        )}
       </div>
     </section>
   );

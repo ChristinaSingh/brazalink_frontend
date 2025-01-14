@@ -5,6 +5,7 @@ import { getBusinessById } from "../utils/authUtils";
 
 const DetailsBusiness = () => {
   const [business, setBusiness] = useState({});
+  const googleUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54875.24055089478!2d${business?.longitude}!3d${business?.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedb2d3da9405%3A0xaecad931f1a39595!2sICICI%20Bank%20Sector%2034%2C%20Chandigarh%20-%20Branch%20%26%20ATM!5e0!3m2!1sen!2sin!4v1611821871299!5m2!1sen!2sin`;
 
   const { id } = useParams();
 
@@ -123,7 +124,7 @@ const DetailsBusiness = () => {
                   </h5>
                   <div className="map-container">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54875.24055089478!2d76.7508579533216!3d30.726761932228868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedb2d3da9405%3A0xaecad931f1a39595!2sICICI%20Bank%20Sector%2034%2C%20Chandigarh%20-%20Branch%20%26%20ATM!5e0!3m2!1sen!2sin!4v1611821871299!5m2!1sen!2sin"
+                      src={googleUrl}
                       width="100%"
                       height={400}
                       frameBorder={0}
@@ -144,7 +145,7 @@ const DetailsBusiness = () => {
                       <img src="/assets/img/phone.svg" width={25} alt="" />
                     </div>
                     <div className="imp-boxes-single-content">
-                      {business.phone || "Contact not found"}
+                      {business?.step3?.phone || "Contact not found"}
                     </div>
                   </div>
                   <div className="imp-boxes-single">
@@ -152,7 +153,7 @@ const DetailsBusiness = () => {
                       <img src="/assets/img/mail.svg" width={25} alt="" />
                     </div>
                     <div className="imp-boxes-single-content">
-                      {business.email || "Email not found"}
+                      {business?.step3?.email || "Email not found"}
                     </div>
                   </div>
                 </div>
@@ -169,31 +170,59 @@ const DetailsBusiness = () => {
                     <ul className="listing-hour-day">
                       <li>
                         <span className="listing-hour-day">Monday</span>
-                        <span className="listing-hour-time">10:00 - 6:00</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.monday
+                            ? `${business?.step3?.business_hours?.monday?.open} - ${business?.step3?.business_hours?.monday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Tuesday</span>
-                        <span className="listing-hour-time">10:00 - 6:00</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.tuesday
+                            ? `${business?.step3?.business_hours?.tuesday?.open} - ${business?.step3?.business_hours?.tuesday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Wednesday</span>
-                        <span className="listing-hour-time">10:00 - 6:00</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.wednesday
+                            ? `${business?.step3?.business_hours?.wednesday?.open} - ${business?.step3?.business_hours?.wednesday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Thursday</span>
-                        <span className="listing-hour-time">10:00 - 4:00</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.wednesday
+                            ? `${business?.step3?.business_hours?.wednesday?.open} - ${business?.step3?.business_hours?.wednesday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Friday</span>
-                        <span className="listing-hour-time">10:00 - 6:00</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.friday
+                            ? `${business?.step3?.business_hours?.friday?.open} - ${business?.step3?.business_hours?.friday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Saturday</span>
-                        <span className="listing-hour-time">Closed</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.saturday
+                            ? `${business?.step3?.business_hours?.saturday?.open} - ${business?.step3?.business_hours?.saturday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Sunday</span>
-                        <span className="listing-hour-time">10:00 - 6:00</span>
+                        <span className="listing-hour-time">
+                          {business?.step3?.business_hours?.sunday
+                            ? `${business?.step3?.business_hours?.sunday?.open} - ${business?.step3?.business_hours?.sunday?.close}`
+                            : "Close"}
+                        </span>
                       </li>
                     </ul>
                   </div>

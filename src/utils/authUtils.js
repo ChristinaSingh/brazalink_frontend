@@ -55,3 +55,20 @@ export const getFaqsDetails = async () => {
     throw error;
   }
 };
+
+export const getLikesIncrease = async () => {
+  try {
+    const res = await axios.get(
+      `http://localhost:8000/business/like_business`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.error("Error fetching restaurants:", error);
+    throw error;
+  }
+};
