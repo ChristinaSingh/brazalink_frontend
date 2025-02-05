@@ -12,7 +12,6 @@ const DetailsBusiness = () => {
   const getBusiness = async () => {
     try {
       const res = await getBusinessById(id);
-      console.log("RES", res);
       setBusiness(res);
     } catch (error) {}
   };
@@ -44,6 +43,8 @@ const DetailsBusiness = () => {
     overflow: "hidden",
     transition: "max-height 0.2s ease-out",
   };
+
+  console.log("Business", business);
 
   return (
     <>
@@ -145,7 +146,7 @@ const DetailsBusiness = () => {
                       <img src="/assets/img/phone.svg" width={25} alt="" />
                     </div>
                     <div className="imp-boxes-single-content">
-                      {business?.step3?.phone || "Contact not found"}
+                      {business?.phone || "Contact not found"}
                     </div>
                   </div>
                   <div className="imp-boxes-single">
@@ -153,7 +154,7 @@ const DetailsBusiness = () => {
                       <img src="/assets/img/mail.svg" width={25} alt="" />
                     </div>
                     <div className="imp-boxes-single-content">
-                      {business?.step3?.email || "Email not found"}
+                      {business?.email || "Email not found"}
                     </div>
                   </div>
                 </div>
@@ -171,56 +172,63 @@ const DetailsBusiness = () => {
                       <li>
                         <span className="listing-hour-day">Monday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.monday
-                            ? `${business?.step3?.business_hours?.monday?.open} - ${business?.step3?.business_hours?.monday?.close}`
+                          {business?.business_hours_monday_open &&
+                          business?.business_hours_monday_close
+                            ? `${business.business_hours_monday_open} - ${business.business_hours_monday_close}`
                             : "Close"}
                         </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Tuesday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.tuesday
-                            ? `${business?.step3?.business_hours?.tuesday?.open} - ${business?.step3?.business_hours?.tuesday?.close}`
+                          {business?.business_hours_tuesday_open &&
+                          business?.business_hours_tuesday_close
+                            ? `${business.business_hours_tuesday_open} - ${business.business_hours_tuesday_close}`
                             : "Close"}
                         </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Wednesday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.wednesday
-                            ? `${business?.step3?.business_hours?.wednesday?.open} - ${business?.step3?.business_hours?.wednesday?.close}`
+                          {business?.business_hours_wednesday_open &&
+                          business?.business_hours_wednesday_close
+                            ? `${business.business_hours_wednesday_open} - ${business.business_hours_wednesday_close}`
                             : "Close"}
                         </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Thursday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.wednesday
-                            ? `${business?.step3?.business_hours?.wednesday?.open} - ${business?.step3?.business_hours?.wednesday?.close}`
+                          {business?.business_hours_thursday_open &&
+                          business?.business_hours_thursday_close
+                            ? `${business.business_hours_thursday_open} - ${business.business_hours_thursday_close}`
                             : "Close"}
                         </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Friday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.friday
-                            ? `${business?.step3?.business_hours?.friday?.open} - ${business?.step3?.business_hours?.friday?.close}`
+                          {business?.business_hours_friday_open &&
+                          business?.business_hours_friday_close
+                            ? `${business.business_hours_friday_open} - ${business.business_hours_friday_close}`
                             : "Close"}
                         </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Saturday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.saturday
-                            ? `${business?.step3?.business_hours?.saturday?.open} - ${business?.step3?.business_hours?.saturday?.close}`
+                          {business?.business_hours_saturday_open &&
+                          business?.business_hours_saturday_close
+                            ? `${business.business_hours_saturday_open} - ${business.business_hours_saturday_close}`
                             : "Close"}
                         </span>
                       </li>
                       <li>
                         <span className="listing-hour-day">Sunday</span>
                         <span className="listing-hour-time">
-                          {business?.step3?.business_hours?.sunday
-                            ? `${business?.step3?.business_hours?.sunday?.open} - ${business?.step3?.business_hours?.sunday?.close}`
+                          {business?.business_hours_sunday_open &&
+                          business?.business_hours_sunday_close
+                            ? `${business.business_hours_sunday_open} - ${business.business_hours_sunday_close}`
                             : "Close"}
                         </span>
                       </li>

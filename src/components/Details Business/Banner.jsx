@@ -4,7 +4,7 @@ const Banner = ({ business }) => {
   return (
     <section
       className="page-title-banner"
-      style={{ backgroundImage: `url(${business?.step4?.background_image})` }}
+      style={{ backgroundImage: `url(${business?.background_image})` }}
     >
       <div className="container">
         <div className="row m-0 align-items-end detail-swap">
@@ -12,7 +12,7 @@ const Banner = ({ business }) => {
             <div className="tr-list-detail d-flex">
               <div className="tr-list-thumb">
                 <img
-                  src={business?.step4?.logo}
+                  src={business?.logo}
                   className="img-responsive"
                   alt=""
                   style={{ width: "100%", height: "100%" }}
@@ -20,15 +20,15 @@ const Banner = ({ business }) => {
               </div>
               <div className="tr-list-info">
                 <div className="cate-gorio">
-                  <a href="#">{business?.step3?.category}</a>
+                  <a href="#">{business?.category}</a>
                 </div>
                 <h4 className="veryfied-list" style={{ color: "#000" }}>
-                  {business?.step1?.businessName}
+                  {business?.businessName}
                 </h4>
                 <p style={{ color: "#000" }}>
                   <i className="ti-location-pin" />
-                  {business?.step2?.apartment}, {business?.step2?.street} ,
-                  {business?.step2?.state} ,{business?.step2?.zipcode}{" "}
+                  {business?.apartment}, {business?.street} ,{business?.state} ,
+                  {business?.zipcode}{" "}
                 </p>
                 <div className="tr-list-ratting">
                   <div className="ratting-group">

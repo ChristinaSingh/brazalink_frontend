@@ -32,16 +32,16 @@ const Help = () => {
       createdBy: user?.id,
     };
 
-    try {
-      const res = await axios.post(
-        "http://localhost:8000/business/help-section/help",
-        data
-      );
-      alert("Help submitted successfully!");
-    } catch (error) {
-      console.error("Error submitting help:", error);
-      alert("Failed to submit help. Please try again.");
-    }
+    // try {
+    //   const res = await axios.post(
+    //     "http://localhost:8000/business/help-section/help",
+    //     data
+    //   );
+    //   alert("Help submitted successfully!");
+    // } catch (error) {
+    //   console.error("Error submitting help:", error);
+    //   alert("Failed to submit help. Please try again.");
+    // }
   };
 
   return (

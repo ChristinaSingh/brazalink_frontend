@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    email: "",
+    emailOrPhone: "",
     password: "",
   });
 
@@ -23,17 +23,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { email, password } = formData;
+    const { emailOrPhone, password } = formData;
 
-    if (!email || !password) {
+    if (!emailOrPhone || !password) {
       setErrors("Email and Password are required.");
       return;
     }
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/auth/login`,
-        { email, password },
+        `http://localhost:8000/auth/signin`,
+        { emailOrPhone, password },
         {
           headers: {
             "Content-Type": "application/json",
@@ -79,10 +79,10 @@ const Login = () => {
                           <label>User or Email</label>
                           <input
                             className="form-control"
-                            type="email"
-                            name="email"
+                            type="text"
+                            name="emailOrPhone"
                             placeholder="Your Username or Email"
-                            value={formData.email}
+                            value={formData.emailOrPhone}
                             onChange={handleChange}
                           />
                         </p>

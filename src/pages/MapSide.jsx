@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const MapSide = () => {
+  const [mapLoaded, setMapLoaded] = useState(false);
+
+  const mapContainerStyle = {
+    width: "100%",
+    height: "400px",
+    borderRadius: "25px 25px 0px 0px"
+  };
+
+  const center = {
+    lat: 40.7128, 
+    lng: -74.0060 
+  };
+
+  const handleMapLoad = () => {
+    setMapLoaded(true);
+  };
+
+  useEffect(() => {
+  }, [mapLoaded]);
+
   return (
     <>
       <div id="main-wrapper">
@@ -25,7 +46,7 @@ const MapSide = () => {
                       color: "#01a841",
                     }}
                   >
-                    <i className="fa fa-search" />{" "}
+                    <i className="fa fa-search" />
                   </span>
                   <button
                     type="submit"
@@ -37,7 +58,6 @@ const MapSide = () => {
                       top: 5,
                     }}
                   >
-                    {" "}
                     <span>Go</span>
                   </button>
                 </div>
@@ -67,11 +87,22 @@ const MapSide = () => {
             </div>
           </div>
         </section>
+
         <div className="container home-map-banner full-wrapious">
           <div className="hm-map-container fw-map">
-            <div id="map" style={{ borderRadius: "25px 25px 0px 0px" }} />
+            <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+              <GoogleMap
+                mapContainerStyle={mapContainerStyle}
+                center={center}
+                zoom={10}
+                onLoad={handleMapLoad}
+              >
+                <Marker position={center} />
+              </GoogleMap>
+            </LoadScript>
           </div>
         </div>
+
         <a id="back2Top" className="top-scroll" title="Back to top" href="#">
           <i className="ti-arrow-up" />
         </a>

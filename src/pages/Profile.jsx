@@ -12,22 +12,20 @@ const Profile = () => {
     fullName: "",
     email: "",
     address: "",
-    zip: "",
+    zipcode: "",
     about: "",
     userId: user?.userId || "",
   });
 
-  console.log("User", userData);
-
   // Fetch user profile data
-  const getProfile = async () => {
+  const getProfile = async (user) => {
+    const id = parseInt(user.userId);
+
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/get-profile/",
-        user
+        `http://localhost:8000/auth/get-profile/${id}`
       );
-      console.log("Response: ", response.data.user);
-      const data = response.data.user;
+      const data = response.data;
       setUserData((prev) => ({
         ...prev,
         ...data,
@@ -36,8 +34,6 @@ const Profile = () => {
       console.error("Error fetching profile data:", error);
     }
   };
-
-  console.log("Profile", userData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +47,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/update-profile/",
+        `http://localhost:8000/auth/update-profile/${user.userId}`,
         userData
       );
       if (response.status === 200) {
@@ -64,7 +60,8 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    getProfile();
+    window.scrollTo(0, 0);
+    getProfile(user);
   }, []);
 
   return (
@@ -102,6 +99,7 @@ const Profile = () => {
                               name="email"
                               value={userData.email}
                               onChange={handleChange}
+                              disabled
                             />
                           </div>
                           <div className="form-group col-md-6">
@@ -119,7 +117,7 @@ const Profile = () => {
                             <input
                               type="text"
                               className="form-control"
-                              name="zip"
+                              name="zipcode"
                               value={userData.zipcode}
                               onChange={handleChange}
                             />

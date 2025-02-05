@@ -11,6 +11,7 @@ const Signup = () => {
     dob: "",
     email: "",
     password: "",
+    phone: "",
   });
 
   const [errors, setErrors] = useState("");
@@ -27,10 +28,10 @@ const Signup = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("Form Data", formData);
     // Basic client-side validation
-    const { firstName, lastName, dob, email, password } = formData;
-    if (!firstName || !lastName || !email || !password) {
+    const { firstName, lastName, dob, email, password, phone } = formData;
+    if (!firstName || !lastName || !email || !password || !phone) {
       setErrors("All required fields must be filled.");
       return;
     }
@@ -54,10 +55,11 @@ const Signup = () => {
           dob: "",
           email: "",
           password: "",
+          phone: "",
         });
         setErrors(""); // Clear errors
       }
-      navigate("/signin");
+      navigate("/login");
     } catch (error) {
       console.error("Signup error:", error);
       setErrors(
@@ -77,7 +79,6 @@ const Signup = () => {
                 <div className="loving-modern-login">
                   <div className="text-center mb-4">
                     <h3>Sign Up</h3>
-                    <p>Enter your email and password</p>
                   </div>
                   <div className="row main_login_form">
                     <div className="login_form_dm">
@@ -120,6 +121,17 @@ const Signup = () => {
                               type="date"
                               name="dob"
                               value={formData.dob}
+                              onChange={handleChange}
+                            />
+                          </p>
+                          <p className="edd-login-username">
+                            <label>Phone</label>
+                            <input
+                              className="form-control"
+                              type="number"
+                              placeholder="Phone"
+                              name="phone"
+                              value={formData.phone}
                               onChange={handleChange}
                             />
                           </p>

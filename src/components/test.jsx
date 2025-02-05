@@ -1,166 +1,132 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-const Login = () => {
-  const navigate = useNavigate();
-  
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  
-  const [errors, setErrors] = useState(""); // State for handling errors
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const { email, password } = formData;
-
-    if (!email || !password) {
-      setErrors("Email and Password are required.");
-      return;
-    }
-
-    try {
-      const response = await axios.post(
-        `http://localhost:8000/auth/login`,
-        { email, password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        const { token, user } = response.data;
-        
-        // Store the token and user info in localStorage or cookies
-        localStorage.setItem("authToken", token);
-        localStorage.setItem("user", JSON.stringify(user));
-
-        // Redirect to a dashboard or home page
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      setErrors(
-        error.response?.data?.message || "An error occurred during login."
-      );
-    }
-  };
-
-  return (
-    <>
-      <section className="padds">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6 col-md-10">
-              <div className="loving-modern-login">
-                <div className="text-center mb-4">
-                  <h3>Sign In</h3>
-                </div>
-                <div className="row main_login_form">
-                  <div className="login_form_dm">
-                    <form onSubmit={handleSubmit}>
-                      <fieldset>
-                        <p className="edd-login-username">
-                          <label>Email</label>
-                          <input
-                            className="form-control"
-                            type="email"
-                            name="email"
-                            placeholder="Your Email"
-                            value={formData.email}
-                            onChange={handleChange}
-                          />
-                        </p>
-                        <p className="edd-login-password">
-                          <label>Password</label>
-                          <input
-                            className="form-control"
-                            type="password"
-                            name="password"
-                            placeholder="*******"
-                            value={formData.password}
-                            onChange={handleChange}
-                          />
-                        </p>
-                        {errors && <p style={{ color: "red" }}>{errors}</p>}
-                        <p className="edd-login-submit">
-                          <button
-                            type="submit"
-                            className="btn btn-primary radius-50 color-white full-width"
-                          >
-                            Sign In
-                          </button>
-                        </p>
-                        <p className="text-center">
-                          Don't have an account?{" "}
-                          <a href="/signup" className="theme-cl">
-                            Sign Up
-                          </a>
-                        </p>
-                        <div className="modal-divider">
-                          <span>OR</span>
-                        </div>
-                        <div
-                          className="text-center mb-3"
-                          style={{ color: "#01a841", fontWeight: "bold" }}
-                        >
-                          <span>Sign In With Social Network </span>
-                        </div>
-                        <div className="social-login mb-5">
-                          <ul>
-                            <li>
-                              <a href="#" className="btn google">
-                                <img
-                                  src="assets/img/g.png"
-                                  style={{ width: 26 }}
-                                  alt="Google"
-                                />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="btn fb">
-                                <img
-                                  src="assets/img/f.png"
-                                  style={{ width: 28 }}
-                                  alt="Facebook"
-                                />
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#" className="btn text-secondary">
-                                <img
-                                  src="assets/img/ap.png"
-                                  style={{ width: 26 }}
-                                  alt="Apple"
-                                />
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </fieldset>
-                    </form>
+<div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon activee">
+                    <i className="lni-burger text-white" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Restaurant</h4>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default Login;
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fas fa-running" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Sports</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-shopping-cart" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Shopping</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-car" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Cars</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-cog" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Services</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-home" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Real Estate</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-paint-brush" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Art</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="ti-briefcase" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Business</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="ti-ruler-pencil" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Education</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="ti-heart-broken" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Healthcare</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="lni-burger" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Restaurant</h4>
+                  </div>
+                </div>
+              </a>
+            </div>

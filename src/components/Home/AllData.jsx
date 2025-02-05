@@ -7,28 +7,12 @@ const AllData = () => {
   const [data, setData] = useState([]);
   const [displayCount, setDisplayCount] = useState(6);
 
-  // Function to fetch business data
   const getBusinessData = async () => {
     try {
       const res = await getBusinessDetails();
-      setData(res);
+      setData(res?.data || []);
     } catch (error) {
       console.error("Error fetching business data:", error);
-      alert(
-        "An error occurred while fetching the business data. Please try again later."
-      );
-    }
-  };
-
-  const getLikeUpdate = async () => {
-    try {
-      const res = await getLikesIncrease();
-      setData(res);
-    } catch (error) {
-      console.error("Error fetching business data:", error);
-      alert(
-        "An error occurred while fetching the business data. Please try again later."
-      );
     }
   };
 
@@ -36,16 +20,192 @@ const AllData = () => {
     getBusinessData();
   }, []);
 
+  const getLikeUpdate = async (id) => {
+    try {
+      const res = await getLikesIncrease(id);
+      console.log("Response:-", res);
+    } catch (error) {
+      console.error("Error fetching business data:", error);
+    }
+  };
+
   const handleExploreMore = () => {
     setDisplayCount((prevCount) => prevCount + 3);
   };
 
+  const handleLike = (detail) => {
+    getLikeUpdate(detail.id);
+  };
+
+  console.log("Data", data);
+
   return (
     <section className="pt-2">
       <div className="container">
+        <div className="row">
+          <div className="owl-carousel owl-theme d-flex" id="categorie-slide">
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon activee">
+                    <i className="lni-burger text-white" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Restaurant</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fas fa-running" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Sports</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-shopping-cart" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Shopping</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-car" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Cars</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-cog" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Services</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-home" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Real Estate</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-paint-brush" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Art</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="ti-briefcase" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Business</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="ti-ruler-pencil" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Education</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="ti-heart-broken" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Healthcare</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="lni-burger" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Restaurant</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="#" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-building" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4>Construction</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="Reveal-cats-box">
+              <a href="category.html" className="Reveal-category-box">
+                <div className="category-desc">
+                  <div className="category-icon">
+                    <i className="fa fa-plus-circle" />
+                  </div>
+                  <div className="Reveal-category-detail category-desc-text">
+                    <h4> Load All</h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <Carousel />
         <div className="row">
-          {data?.slice(0, displayCount).map((detail, index) => (
+          {data?.map((detail, index) => (
             <div className="col-lg-4 col-md-4 col-sm-12" key={index}>
               <div className="Reveal-grid-wrapper">
                 <div className="d-flex">
@@ -70,10 +230,10 @@ const AllData = () => {
                         className="Reveal-header-title d-flex"
                         style={{ justifyContent: "space-between" }}
                       >
-                        <Link to={`/details/${detail._id}`}>
-                          {detail.step1.businessName.length > 15
-                            ? `${detail.step1.businessName.substring(0, 15)}...`
-                            : detail.step1.businessName}
+                        <Link to={`/details/${detail.id}`}>
+                          {detail.businessName.length > 15
+                            ? `${detail.businessName.substring(0, 15)}...`
+                            : detail.businessName}
                         </Link>{" "}
                         <a
                           href="javascript:void();"
@@ -85,24 +245,24 @@ const AllData = () => {
                           />
                         </a>
                       </h4>
-                      <p>{detail.step1.sub_category}</p>
+                      <p>{detail.sub_category}</p>
                     </div>
                   </div>
                 </div>
                 <div className="Reveal-grid-caption-body">
                   <ul className="Reveal-contact-list flex-wrap">
                     <li>
-                      <a href={detail.step4.whatsapp_number} target="_blank">
+                      <a href={detail.whatsapp_number} target="_blank">
                         <img src="assets/img/whatsapp.png" />
                       </a>
                     </li>
                     <li>
-                      <a href={detail.step4.instagram_link} target="_blank">
+                      <a href={detail.instagram_link} target="_blank">
                         <img src="assets/img/instagram.png" />
                       </a>
                     </li>
                     <li>
-                      <a href={detail.step3.website_link} target="_blank">
+                      <a href={detail.website_link} target="_blank">
                         <img src="assets/img/global.png" />
                       </a>
                     </li>
@@ -113,7 +273,7 @@ const AllData = () => {
                       </a>
                     </li>
                     <li>
-                      <a href={detail.step3.phone} target="_blank">
+                      <a href={detail.phone} target="_blank">
                         <img src="assets/img/call.png" />
                       </a>
                     </li>
@@ -148,7 +308,7 @@ const AllData = () => {
                     style={{ gap: "12px" }}
                   >
                     <li>
-                      <a href="#">
+                      <a href="#" onClick={() => handleLike(detail)}>
                         <img src="assets/img/icons/Love It.png" /> <br />
                         <span>Love It</span>
                       </a>

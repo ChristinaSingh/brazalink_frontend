@@ -8,7 +8,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser.id) {
+
+    if (storedUser?.id) {
       setUser(storedUser);
     }
 
@@ -38,7 +39,7 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
     console.log("Dropdown visible:", !dropdownVisible);
-  };  
+  };
 
   return (
     <div className="header header-light">
@@ -95,7 +96,7 @@ const Navbar = () => {
                       className="btn btn-order-by-filt theme-cl"
                       data-toggle="dropdown"
                       aria-haspopup="true"
-                      aria-expanded={dropdownVisible} 
+                      aria-expanded={dropdownVisible}
                       onClick={toggleDropdown}
                     >
                       <img
@@ -107,9 +108,9 @@ const Navbar = () => {
                     </button>
                     {dropdownVisible && (
                       <div
-                      className={`dropdown-menu animated flipInX ${
-                        dropdownVisible ? "show" : ""
-                      }`}
+                        className={`dropdown-menu animated flipInX ${
+                          dropdownVisible ? "show" : ""
+                        }`}
                         style={{
                           position: "absolute",
                           top: "100%",
@@ -124,19 +125,19 @@ const Navbar = () => {
                         >
                           <i className="ti-user" /> Profile
                         </Link>
-                        <button
+                        <Link to="#"
                           onClick={handleLogout}
                           className="dropdown-item"
                         >
                           <i className="ti-power-off" /> Logout
-                        </button>
+                        </Link>
                       </div>
                     )}
                   </div>
                 </li>
               ) : (
                 <li className="add-listing bg-whit">
-                  <Link onClick={handleLogout}>
+                  <Link to={"/login"}>
                     <i className="fas fa-user-circle"></i> Sign In
                   </Link>
                 </li>
